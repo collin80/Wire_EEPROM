@@ -39,7 +39,7 @@ void EEPROMCLASS::writeByte(uint32_t address, uint8_t valu)
   Wire.beginTransmission(i2c_id);
   Wire.write(buffer, 3);
   Wire.endTransmission(true);
-  writeTime = millis() + 7;
+  writeTime = millis() + 8;
 }
 
 void EEPROMCLASS::setWPPin(uint8_t pin) {
