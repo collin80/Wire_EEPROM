@@ -35,7 +35,7 @@ public:
 		Wire.write(buffer, 258);
 		Wire.endTransmission(true);  
 
-		writeTime = millis() + 7; //wait 7ms before another write
+		writeTime = millis() + 30; //wait 7ms before another write
 
 		return i;
 	}
