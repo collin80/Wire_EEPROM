@@ -8,6 +8,8 @@ public:
 	uint8_t readByte(uint32_t address);
 	void writeByte(uint32_t address, uint8_t valu);
 
+	void setWPPin(uint8_t pin);
+
 	template <class T> int write(int ee, const T& value)
 	{	
 		uint8_t buffer[258];

@@ -10,12 +10,18 @@ class TestingClass {
 	int32_t TestValue4;
 };
 
+#define Serial SerialUSB //define to use native port
 
 void setup() {
+
+   delay(10000);
+
   Wire.begin();
   Serial.begin(115200);
   
   TestingClass test;
+  
+  EEPROM.setWPPin(19);
   
   Serial.println("Setting values");
   
@@ -25,7 +31,7 @@ void setup() {
   test.TestValue4 = -2462463;
   
   Serial.println("Writing to EEPROM");
-  EEPROM.write(0, test);
+  EEPROM.write(200, test);
   
   Serial.println("Waiting a bit");
   delay(1000); //wait a bit for the EEPROM to actually write
@@ -38,7 +44,7 @@ void setup() {
   test.TestValue4 = 0;
   
   Serial.println("Reading back from EEPROM");
-  EEPROM.read(0, test);
+  EEPROM.read(200, test);
   
   Serial.print("TestValue1: ");
   Serial.println(test.TestValue1, HEX);

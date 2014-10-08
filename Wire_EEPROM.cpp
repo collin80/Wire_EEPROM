@@ -42,6 +42,11 @@ void EEPROMCLASS::writeByte(uint32_t address, uint8_t valu)
   writeTime = millis() + 7;
 }
 
+void EEPROMCLASS::setWPPin(uint8_t pin) {
+	pinMode(pin, OUTPUT);
+	digitalWrite(pin, LOW);
+}
+
 EEPROMCLASS::EEPROMCLASS()
 {
   Wire.begin();
